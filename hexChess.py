@@ -5,6 +5,7 @@ screen = pygame.display.set_mode((1280,720))
 clock = pygame.time.Clock()
 
 import board
+import pieces
 
 while True:
     # Process player inputs.
@@ -20,6 +21,7 @@ while True:
 
     # Render the graphics here.
     hexBoard = board.board()
+    R1 = pieces.rook(screen, hexBoard, "c8", "black")
 
     pygame.display.flip()  # Refresh on-screen display
     clock.tick(60)         # wait until next frame (at 60 FPS)

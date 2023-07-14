@@ -76,7 +76,10 @@ class tile:
 class board:
     def __init__(self):
 
-        self.tiles = []
+        self.tileHeight = tileHeight
+        self.origin = origin
+
+        self.tiles = {}
 
         for i in range(11): # letters
             letterCoordinate = chr(i+97)
@@ -96,4 +99,5 @@ class board:
                 }
                 colour = coordinateSumToColour[coordinateSum]
 
-                self.tiles.append(tile(position, colour))
+                exec("tile" + position + " = tile(position, colour)")
+                self.tiles["tile" + position] = eval("tile" + position)
